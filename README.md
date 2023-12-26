@@ -104,9 +104,9 @@ Thats how you can do it:
     
     ![Untitled](assets/Untitled%209.png)
     
-    - Press <`ctrl or shirt or alt`> + <`Other letter` `or numeber`>
+    - Press <`ctrl or shift or alt`> + <`Other letter` `or numeber`>
     - `Exp:` I use <`Ctrl`> + <`0`>
     
 9. Onece you have all set it `close all` and `try to do it` 
 
-![Untitled](assets/Untitled%2010.png)
+![Untitled](assets/Untitled%208.png)
