@@ -68,9 +68,10 @@ Thats how you can do it:
 1. Just  go to `settings` and serch for `keyboard`:
 
 ![Untitled](assets/Untitled%202.png)
+
 2. At the end of the `page` go to `view and Customize Shortcuts`
     
-    ![Untitled](assets/Untitled%203.png)
+![Untitled](assets/Untitled%203.png)
     
 
 3. At the end go to `Custom Shortcuts`
