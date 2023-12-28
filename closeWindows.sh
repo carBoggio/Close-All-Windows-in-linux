@@ -1,27 +1,23 @@
 #!/bin/bash 
 # Esto es para indicar que usamos el interprete de bash
-ids=$(wmctrl -l)
 
-cantidadProcesos=$(echo "$ids" | grep -c $'\n')
+# Usamos wmctrl -l -x para obtener una los nombres de los programas que estan en la tercera columna 
+ids=$(wmctrl -l -x | awk '{print $3}')
 
-n=10
-
-# Usamos awk para imprimir los primeros n caracteres después de cada salto de línea
-resultado=$(echo "$ids" | awk -v n="$n" '{print substr($0, 1, n)}')
-
-arrayconpid=()
-arrayconpid+=($resultado) 
-
-for id in "${arrayconpid[@]}"; do
-  
-  pid=$(xprop _NET_WM_PID -id $id)
-  pid=${pid:24}
-
-  kill -15 $pid # uso de SIGTERM. Permite operaciones de limpieza antes de cerrar
-  
-done
+Procesos=($ids)
 
 aplicacionesextraacerrar=("gnome-control-c" "gnome-terminal-" "gedit" "nautilus")
+
+for line in "${Procesos[@]}"; do
+  
+# Cortamos el string para obtener el nombre de la app:
+  result=$(echo "$line" | awk -F '[.-]' '{print $1}')
+  result="${result,,}" # Put to lowercase
+  
+# Agregamos el nombre a los otros nombres:
+  aplicacionesextraacerrar+=($result)
+
+done
 
 
 for app in "${aplicacionesextraacerrar[@]}"; do
